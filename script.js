@@ -68,3 +68,8 @@ document.addEventListener("DOMContentLoaded",()=>{
    extraCard("22_EXPANDED_BESTIARY","Expanded Bestiary","GM","Twenty ready-to-use enemies and alien threats.")
  );
 });
+
+document.addEventListener("DOMContentLoaded",()=>{
+ const c=document.querySelector("#characterCards");
+ if(c)c.insertAdjacentHTML("beforeend",`<div class="card" data-page="23_SMUGGLER"><span class="tag">CAREER</span><h3>Smuggler</h3><p>Ninth career: blockade runner, underworld broker and ghost hauler.</p></div>`);
+});

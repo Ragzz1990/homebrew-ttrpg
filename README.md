@@ -1,13 +1,17 @@
-# The Far Reach — Website Alpha v1.1
+# The Far Reach — Galactic Atlas Build v1.2
 
-Static GitHub Pages site. Upload the root files directly to the repository.
+GitHub Pages static site.
 
-Required:
-- index.html
-- styles.css
-- data.js
-- script.js
+New in v1.2:
+- 42 clickable locations in an interactive galaxy map
+- original lightweight SVG planet/system artwork for every atlas entry
+- complete lore/economic dossier for every location
+- wealth, law, industry, faction, exports, imports and black-market ratings
+- search and filters
+- ninth Career: Smuggler (levels 1–20)
+- three Smuggler specialisations: Blockade Runner, Black-Market Broker, Ghost Hauler
+- fictional contraband / high-risk drug-run system
+- interactive contraband route/profit/Heat planner
+- anchored setting in the real NGC 6872 (Condor Galaxy), while all playable worlds remain fictional
 
-No build step, database, npm or server is required. Character and crew saves use browser localStorage.
-
-This is the integrated private-alpha build of The Far Reach.
+Upload the entire contents of this folder to the repository root. Keep the `assets/planets/` folder structure intact.

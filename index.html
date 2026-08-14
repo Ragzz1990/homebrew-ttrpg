@@ -13,7 +13,7 @@
   <nav id="nav">
     <a href="#home">Home</a><a href="#play">Play</a><a href="#rules">Rules</a>
     <a href="#characters">Characters</a><a href="#compendium">Compendium</a>
-    <a href="#galaxy">Galaxy</a><a href="#gm">GM</a>
+    <a href="#galaxy">Galaxy</a><a href="#underworld">Underworld</a><a href="#gm">GM</a>
   </nav>
 </header>
 
@@ -65,6 +65,29 @@
 
 <section id="galaxy" class="panel"><div class="section-head"><span>05</span><div><h2>The Known Reach</h2><p>Factions, systems and the mystery of the Crossing.</p></div></div><div id="galaxyContent" class="article"></div></section>
 
+
+<section id="galaxy-atlas" class="panel galaxy-atlas-panel">
+ <div class="section-head"><span>05A</span><div><h2>Interactive Galaxy Atlas</h2><p>Click a location to open its planetary dossier, economy, black market and adventure hooks.</p></div></div>
+ <div class="atlas-toolbar">
+   <input id="atlasSearch" placeholder="Search planet, industry, faction...">
+   <select id="atlasRegion"><option value="">All regions</option></select>
+   <select id="atlasLaw"><option value="">All law levels</option><option>Low</option><option>Medium</option><option>High</option><option>Very High</option><option>Extreme</option><option>Restricted</option><option>Unknown</option></select>
+ </div>
+ <div class="atlas-layout">
+   <div class="galaxy-map" id="galaxyMap"><div class="map-core"></div><svg id="routeLayer" viewBox="0 0 100 100" preserveAspectRatio="none"></svg><div id="planetMarkers"></div></div>
+   <aside class="planet-dossier" id="planetDossier"><div class="atlas-empty"><span>◈</span><h3>Select a world</h3><p>Navigation data will appear here.</p></div></aside>
+ </div>
+</section>
+<section id="underworld" class="panel">
+ <div class="section-head"><span>05B</span><div><h2>Underworld</h2><p>Smuggling, contraband, black markets and high-risk cargo runs are now full campaign paths.</p></div></div>
+ <div class="cards" id="underworldCards"></div>
+ <div class="run-planner">
+  <h3>Contraband Run Planner</h3>
+  <div class="form-grid"><label>Origin<select id="runOrigin"></select></label><label>Destination<select id="runDest"></select></label><label>Cargo<select id="runCargo"><option value="1800|Neon Dust">Neon Dust</option><option value="2500|Red Mercy">Red Mercy</option><option value="3200|Dreamseed">Dreamseed</option><option value="4500|Glass">Glass</option><option value="6000|Helix-9">Helix-9</option><option value="1400|Drift">Drift</option><option value="8000|Military ICE">Military ICE</option></select></label></div>
+  <button id="planRun" class="button primary">Calculate Run</button><div id="runResult" class="output"></div>
+ </div>
+</section>
+
 <section id="gm" class="panel"><div class="section-head"><span>06</span><div><h2>GM Console</h2><p>Generate a job or bounty, then open the GM rules and starter adventure.</p></div></div>
  <div class="gm-grid"><div><h3>Contract Generator</h3><button class="button primary" id="genJob">Generate Contract</button><div id="jobOutput" class="output"></div></div><div><h3>GM Library</h3><div class="cards" id="gmCards"></div></div></div>
 </section>
@@ -72,5 +95,5 @@
 
 <dialog id="reader"><button class="close" id="closeReader">×</button><article id="readerBody"></article></dialog>
 <footer><span>THE FAR REACH // PLAYTEST v1.0</span><span>All current rules are original playtest material.</span></footer>
-<script src="data.js"></script><script src="script.js"></script>
+<script src="data.js"></script><script src="galaxy-data.js"></script><script src="script.js"></script><script src="atlas.js"></script>
 </body></html>
