@@ -1,18 +1,32 @@
-# The Far Reach
+# The Far Reach — Version 0.2
 
-Version 0.1 of an original 5e-compatible galactic tabletop RPG website.
+A static, free-hostable website for an original 5e-compatible galactic TTRPG.
 
-## Current sections
-- Landing page
-- Core rules direction
-- Original playable peoples
-- Careers/classes
-- Cybernetics
-- Galaxy premise
-- Dice roller
+## What changed from V0.1
 
-## Run locally
-Open `index.html` in a browser.
+- Expanded setting lore for The Crossing, Earth myths, Vein Gates and the Far Reach
+- Interactive playable-peoples reference
+- Expandable career reference
+- Cybernetics filters and technology tiers
+- Starting ship console and module concept
+- Interactive bounty board and crew Heat tracker
+- Trade-route market simulator
+- Alpha character creator with live ability modifiers
+- Browser-local character saving
+- Compendium search
+- Mobile navigation
+- Existing dice roller retained
 
-## Free hosting
-The site is static and can be hosted on GitHub Pages or Cloudflare Pages.
+## Install on GitHub Pages
+
+Replace the existing root files in the repository with:
+- `index.html`
+- `styles.css`
+- `script.js`
+- `README.md` (optional)
+
+GitHub Pages will redeploy automatically after the commit.
+
+## Design direction
+
+The Far Reach uses familiar d20/5e-style ideas while keeping its setting, peoples, careers, technology, lore and game systems original.

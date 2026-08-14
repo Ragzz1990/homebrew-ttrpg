@@ -1,1 +1,269 @@
-<!doctype html><html><head><meta charset='utf-8'><meta name='viewport' content='width=device-width,initial-scale=1'><title>The Far Reach</title><link rel='stylesheet' href='styles.css'></head><body><header><b>✦ THE FAR REACH</b><nav><a href='#rules'>Rules</a><a href='#peoples'>Peoples</a><a href='#careers'>Careers</a><a href='#cyber'>Cybernetics</a><a href='#galaxy'>Galaxy</a></nav></header><main><section class='hero'><p class='eyebrow'>A 5E-COMPATIBLE GALACTIC TTRPG</p><h1>Your ship.<br>Your crew.<br><em>Your galaxy.</em></h1><p>Hunt bounties, trade between distant worlds, salvage forgotten technology and build a reputation across a galaxy humanity was never meant to reach.</p><div><a class='btn' href='#start'>ENTER THE FAR REACH</a><a class='btn alt' href='#rules'>READ THE RULES</a></div></section><section id='start'><h2>Choose your path</h2><div class='grid'><article><span>⚔</span><h3>Bounty Board</h3><p>Track fugitives, rival hunters and increasingly dangerous contracts.</p></article><article><span>◈</span><h3>Trade Exchange</h3><p>Buy low, cross dangerous space and exploit a living galactic economy.</p></article><article><span>⬡</span><h3>Build Your Ship</h3><p>Upgrade hull, weapons, cargo, scanners, workshops and illegal modules.</p></article><article><span>✦</span><h3>Explore</h3><p>Discover forgotten systems, alien civilisations and the truth of the Crossing.</p></article></div></section><section id='rules'><p class='eyebrow'>CORE SYSTEM</p><h2>Familiar rules. A new frontier.</h2><p>The Far Reach uses a familiar d20 foundation: six abilities, proficiency, saving throws, Defence, hit points, actions, reactions and advantage/disadvantage. All setting content, careers, peoples, technology and adventures are original.</p><div class='chips'><b>d20 Checks</b><b>Levels</b><b>Proficiency</b><b>Advantage</b><b>Ship Combat</b><b>Reputation</b></div></section><section id='peoples'><p class='eyebrow'>PLAYABLE PEOPLES</p><h2>Not every mind evolved alone.</h2><div class='grid'><article><h3>Humans</h3><p>Descendants of the lost Crossing. Adaptable, scattered, and divided over whether Earth was history or myth.</p></article><article><h3>Khelt</h3><p>Colonies of countless organisms inhabiting a growing mineral skeleton. To a Khelt, “I” means the colony.</p></article><article><h3>Orrin</h3><p>Sightless electromagnetic sensates who perceive nervous systems and powered technology as luminous structures.</p></article><article><h3>Velari</h3><p>Partially fluid beings whose flexible lattice bodies change dramatically under different gravity.</p></article><article><h3>Naruun</h3><p>Dual-brained beings whose conscious and instinctive minds process the universe in parallel.</p></article><article><h3>Echoed</h3><p>Biological memory-organisms housed in artificial shells. Rebirth preserves memories—but never perfectly.</p></article></div></section><section id='careers'><p class='eyebrow'>CAREERS</p><h2>What do you do when nobody owns the stars?</h2><div class='grid'><article><h3>Bounty Hunter</h3><p>Tracker and target specialist.</p></article><article><h3>Voidrunner</h3><p>Smuggler, infiltrator and opportunist.</p></article><article><h3>Vanguard</h3><p>Soldier and professional mercenary.</p></article><article><h3>Gearwright</h3><p>Engineer, mechanic and inventor.</p></article><article><h3>Xenobiologist</h3><p>Scientist, explorer and field medic.</p></article><article><h3>Envoy</h3><p>Trader, diplomat and negotiator.</p></article><article><h3>Riftborn</h3><p>Rare beings able to touch the force behind the Vein Gates.</p></article></div></section><section id='cyber'><p class='eyebrow'>BODY MODIFICATION</p><h2>Cybernetics</h2><p>Augmentation is equipment, identity and progression. Implants occupy body slots and range from civilian prosthetics to forbidden Precursor technology.</p><div class='grid'><article><h3>Deadeye Mk III</h3><small>MILITARY • OCULAR</small><p>Rangefinding, zoom and predictive targeting.</p></article><article><h3>Ghostskin</h3><small>RESTRICTED • DERMAL</small><p>Subdermal optical camouflage.</p></article><article><h3>Titan Arm</h3><small>INDUSTRIAL • ARM</small><p>Heavy lifting and integrated tools.</p></article><article><h3>Borrowed Reflexes</h3><small>PROTOTYPE • NEURAL</small><p>Recorded motor patterns carrying fragments of another person's memory.</p></article></div></section><section id='galaxy' class='galaxy'><p class='eyebrow'>THE GALAXY</p><h2>The Crossing brought humanity here.<br>No one knows how.</h2><p>Ancient Vein Gates connect civilisation. Beyond reliable routes lies the Far Reach: pirate kingdoms, corporate colonies, unclaimed worlds, lost ships and ruins older than recorded history.</p><div class='orb'>✦<i></i><i></i><i></i></div></section><section><p class='eyebrow'>TABLE TOOL</p><h2>Dice Roller</h2><div id='dice' class='dice'></div><div class='result'><span id='label'>Choose a die</span><strong id='result'>—</strong></div></section></main><footer>THE FAR REACH <span>A living galactic TTRPG • Version 0.1</span></footer><script src='script.js'></script></body></html>
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width,initial-scale=1">
+  <meta name="description" content="The Far Reach — a 5e-compatible galactic tabletop roleplaying game of ships, bounties, trade, cybernetics and discovery.">
+  <title>The Far Reach — Galactic TTRPG</title>
+  <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+<header>
+  <a class="brand" href="#top"><b>✦ THE FAR REACH</b><small>GALACTIC TTRPG</small></a>
+  <button class="nav-toggle" id="navToggle" aria-label="Toggle navigation">☰</button>
+  <nav id="nav">
+    <a href="#lore">Lore</a>
+    <a href="#rules">Rules</a>
+    <a href="#peoples">Peoples</a>
+    <a href="#careers">Careers</a>
+    <a href="#cyber">Cybernetics</a>
+    <a href="#ships">Ships</a>
+    <a href="#bounties">Bounties</a>
+    <a href="#trade">Trade</a>
+    <a href="#creator">Creator</a>
+  </nav>
+  <button class="search-btn" id="searchOpen">⌕ Search</button>
+</header>
+
+<div class="search-overlay" id="searchOverlay" hidden>
+  <div class="search-panel">
+    <button class="close" id="searchClose">×</button>
+    <p class="eyebrow">COMPENDIUM SEARCH</p>
+    <h2>Search The Far Reach</h2>
+    <input id="searchInput" type="search" placeholder="Try Khelt, bounty, cybernetics, Vein Gates...">
+    <div id="searchResults" class="search-results"></div>
+  </div>
+</div>
+
+<main id="top">
+  <section class="hero">
+    <div class="hero-copy">
+      <p class="eyebrow">A 5E-COMPATIBLE GALACTIC TTRPG</p>
+      <h1>Your ship.<br>Your crew.<br><em>Your galaxy.</em></h1>
+      <p>Hunt bounties, trade between distant worlds, salvage forgotten technology, augment your body and build a reputation across a galaxy humanity was never meant to reach.</p>
+      <div class="hero-buttons">
+        <a class="btn" href="#creator">CREATE A CHARACTER</a>
+        <a class="btn alt" href="#lore">ENTER THE FAR REACH</a>
+      </div>
+      <div class="hero-tags">
+        <span>BOUNTY HUNTING</span><span>SHIP OWNERSHIP</span><span>GALACTIC TRADE</span><span>CYBERNETICS</span><span>EXPLORATION</span>
+      </div>
+    </div>
+    <div class="hero-orbit" aria-hidden="true">
+      <div class="planet"></div><i></i><i></i><i></i>
+    </div>
+  </section>
+
+  <section id="start">
+    <p class="eyebrow">THE CAMPAIGN LOOP</p>
+    <h2>Choose what kind of crew you become.</h2>
+    <div class="grid path-grid">
+      <article><span>⚔</span><h3>Bounty Hunters</h3><p>Track fugitives, break criminal networks and compete with rival hunters for contracts.</p></article>
+      <article><span>◇</span><h3>Traders</h3><p>Move cargo between worlds, read local markets and decide who profits when systems fall into crisis.</p></article>
+      <article><span>⬡</span><h3>Ship Crew</h3><p>Own a vessel together and shape it with weapons, cargo holds, workshops, cells and illegal modules.</p></article>
+      <article><span>✦</span><h3>Explorers</h3><p>Chart lost systems, salvage ruins and uncover why humanity was brought to this galaxy.</p></article>
+    </div>
+  </section>
+
+  <section id="lore" class="feature-section" data-search="lore crossing earth humanity vein gates far reach galaxy history">
+    <div class="section-head">
+      <div><p class="eyebrow">SETTING LORE</p><h2>The Crossing</h2></div>
+      <span class="status">FOUNDATIONAL LORE</span>
+    </div>
+    <div class="two-col">
+      <div>
+        <p class="lead">Humanity did not conquer this galaxy. Humanity arrived late.</p>
+        <p>Thousands of years ago, colony vessels carrying humans appeared in a galaxy unimaginably distant from the Milky Way. The event became known as <strong>The Crossing</strong>.</p>
+        <p>No surviving record explains who transported the ships, what technology was used or why humanity was chosen. No civilisation has successfully recreated the journey.</p>
+        <p>Earth became history, then legend, then argument. Some humans consider it humanity's birthplace. Some believe it was a paradise. Others teach that humanity was exiled from it.</p>
+      </div>
+      <div class="timeline">
+        <div><b>THE CROSSING</b><span>Human vessels appear without warning.</span></div>
+        <div><b>THE SCATTERING</b><span>Human communities spread through established alien space.</span></div>
+        <div><b>THE VEIN AGE</b><span>Ancient gate routes become the arteries of civilisation.</span></div>
+        <div><b>NOW</b><span>Crews push beyond reliable routes into the Far Reach.</span></div>
+      </div>
+    </div>
+    <details>
+      <summary>What are the Vein Gates?</summary>
+      <p>Vein Gates are ancient transit structures connecting distant regions of the galaxy. Modern civilisations know how to operate many of them, but not how they were originally constructed. The farther a vessel travels from established space, the more incomplete, unstable or unknown the network becomes.</p>
+    </details>
+    <details>
+      <summary>What is the Far Reach?</summary>
+      <p>The Far Reach is the frontier beyond dependable routes: unclaimed systems, pirate domains, corporate colonies, independent stations, lost ships, alien ruins and civilisations that have never entered the wider galactic order.</p>
+    </details>
+  </section>
+
+  <section id="rules" data-search="rules d20 5e checks ability proficiency advantage defence hit points action bonus reaction saving throws">
+    <p class="eyebrow">CORE SYSTEM</p>
+    <h2>Familiar rules. A new frontier.</h2>
+    <p class="lead">If your table knows 5e-style play, The Far Reach should feel immediately familiar while the setting, careers, peoples, technology, ships and adventures remain our own.</p>
+    <div class="rules-grid">
+      <article><b>d20 CHECK</b><strong>d20 + Ability + Proficiency</strong><p>Roll against a Difficulty set by the GM.</p></article>
+      <article><b>DEFENCE</b><strong>10 + armour + modifiers</strong><p>Attacks meet or beat Defence to hit.</p></article>
+      <article><b>TURN</b><strong>Move + Action + Bonus Action</strong><p>Reactions occur when their trigger is met.</p></article>
+      <article><b>ADVANTAGE</b><strong>Roll 2d20, keep one</strong><p>Advantage keeps the higher; disadvantage the lower.</p></article>
+    </div>
+    <div class="chips"><b>Strength</b><b>Dexterity</b><b>Constitution</b><b>Intelligence</b><b>Wisdom</b><b>Charisma</b><b>Levels 1–20</b><b>Saving Throws</b></div>
+    <div class="legal-note"><strong>Design note:</strong> The site describes our own 5e-compatible mechanics and original content rather than reproducing D&D book text.</div>
+  </section>
+
+  <section id="peoples" data-search="races peoples human khelt orrin velari naruun echoed species ancestry">
+    <div class="section-head"><div><p class="eyebrow">PLAYABLE PEOPLES</p><h2>Six origins. Six ways to experience reality.</h2></div><span class="status">V0.2 DRAFT</span></div>
+    <div class="card-tabs" id="peopleTabs"></div>
+    <div class="detail-card" id="peopleDetail"></div>
+  </section>
+
+  <section id="careers" data-search="classes careers bounty hunter voidrunner vanguard gearwright xenobiologist envoy riftborn subclasses">
+    <p class="eyebrow">CAREERS</p>
+    <h2>What do you do when nobody owns the stars?</h2>
+    <div class="career-list" id="careerList"></div>
+  </section>
+
+  <section id="cyber" data-search="cybernetics implants augmentation ocular neural arms torso legs dermal military restricted prototype precursor">
+    <div class="section-head"><div><p class="eyebrow">BODY MODIFICATION</p><h2>Cybernetics</h2></div><span class="status warning">LEGALITY VARIES BY SYSTEM</span></div>
+    <p class="lead">Cybernetics are progression, equipment and identity. Characters can replace, reinforce or expand parts of their bodies, but powerful augmentation has costs beyond credits.</p>
+    <div class="slot-row"><span>NEURAL</span><span>OCULAR</span><span>ARMS</span><span>TORSO</span><span>LEGS</span><span>DERMAL</span></div>
+    <div class="filter-row" id="cyberFilters">
+      <button class="active" data-filter="all">All</button>
+      <button data-filter="Civilian">Civilian</button>
+      <button data-filter="Professional">Professional</button>
+      <button data-filter="Military">Military</button>
+      <button data-filter="Restricted">Restricted</button>
+      <button data-filter="Prototype">Prototype</button>
+      <button data-filter="Precursor">Precursor</button>
+    </div>
+    <div class="grid" id="cyberGrid"></div>
+    <div class="consequence-box">
+      <h3>Augmentation has consequences</h3>
+      <p>Illegal implants can trigger security alerts. Military hardware may require licences. EMP effects can threaten exposed systems. Corporate implants can carry proprietary locks. Species compatibility matters. Black-market modifications may contain stolen identifiers—or unknown software.</p>
+    </div>
+  </section>
+
+  <section id="ships" data-search="ships hull shields armour thrust signature power cargo crew modules weapons freighter starship upgrade">
+    <p class="eyebrow">YOUR SECOND CHARACTER</p>
+    <h2>The ship belongs to the whole crew.</h2>
+    <div class="ship-console">
+      <div class="ship-main">
+        <div class="ship-title"><div><small>STARTING FRAME</small><h3>Wayfarer Light Freighter</h3></div><span>CLASS: CIVILIAN / MODULAR</span></div>
+        <div class="ship-stats">
+          <div><small>HULL</small><strong>82</strong><meter min="0" max="100" value="82"></meter></div>
+          <div><small>SHIELDS</small><strong>40</strong><meter min="0" max="100" value="40"></meter></div>
+          <div><small>ARMOUR</small><strong>14</strong></div>
+          <div><small>THRUST</small><strong>6</strong></div>
+          <div><small>SIGNATURE</small><strong>3</strong></div>
+          <div><small>POWER</small><strong>7 / 10</strong></div>
+        </div>
+      </div>
+      <div class="ship-side">
+        <h4>MODULES</h4>
+        <label><input type="checkbox" checked> Cargo Bay</label>
+        <label><input type="checkbox" checked> Basic Scanner</label>
+        <label><input type="checkbox"> Holding Cells</label>
+        <label><input type="checkbox"> Workshop</label>
+        <label><input type="checkbox"> Smuggler Compartments</label>
+        <label><input type="checkbox"> Medical Bay</label>
+        <p class="micro">The final ship builder will calculate mass, power use, cost, crew needs and combat statistics.</p>
+      </div>
+    </div>
+    <div class="grid compact-grid">
+      <article><h3>Weapons</h3><p>Pulse cannons, rail weapons, missiles, boarding systems and stranger alien technologies.</p></article>
+      <article><h3>Utility</h3><p>Scanners, mining rigs, tractor systems, drones, repair arms and scientific equipment.</p></article>
+      <article><h3>Interior</h3><p>Cells, cargo bays, workshops, medical facilities, living quarters and hidden compartments.</p></article>
+      <article><h3>Drive Systems</h3><p>Improve thrust, range, gate compatibility, stealth and emergency manoeuvres.</p></article>
+    </div>
+  </section>
+
+  <section id="bounties" data-search="bounty hunters contracts wanted alive dead crimes reward faction danger rating reputation">
+    <p class="eyebrow">BOUNTY NETWORK</p>
+    <h2>Everyone has a price. Eventually, so will you.</h2>
+    <div class="bounty-board" id="bountyBoard"></div>
+    <div class="rep-track">
+      <div><small>CREW HEAT</small><strong id="heatValue">0</strong></div>
+      <input id="heatSlider" type="range" min="0" max="100" value="0">
+      <p id="heatText">Unknown crew. Nobody important is looking for you.</p>
+    </div>
+  </section>
+
+  <section id="trade" data-search="trade cargo economy market credits buy sell mining agriculture medicine luxury weapons smuggling">
+    <p class="eyebrow">GALACTIC ECONOMY</p>
+    <h2>Profit is a route, not a number.</h2>
+    <p class="lead">Different worlds produce and demand different goods. The crew can make legitimate money, exploit shortages, smuggle restricted cargo or use trade as the reason an adventure begins.</p>
+    <div class="trade-sim">
+      <div>
+        <label>BUY AT
+          <select id="buyWorld">
+            <option value="mining">Khepri Belt — Mining System</option>
+            <option value="agri">Merrow — Agricultural World</option>
+            <option value="core">Vanta Prime — Core Trade Hub</option>
+          </select>
+        </label>
+        <label>SELL AT
+          <select id="sellWorld">
+            <option value="agri">Merrow — Agricultural World</option>
+            <option value="mining">Khepri Belt — Mining System</option>
+            <option value="frontier">Orison-9 — Frontier Colony</option>
+          </select>
+        </label>
+      </div>
+      <div class="market-table" id="marketTable"></div>
+    </div>
+  </section>
+
+  <section id="creator" data-search="character creator builder people career background ability stats cybernetic character sheet">
+    <div class="section-head"><div><p class="eyebrow">CHARACTER CREATOR — ALPHA</p><h2>Build a traveller of the Far Reach.</h2></div><span class="status">INTERACTIVE</span></div>
+    <div class="creator">
+      <div class="creator-form">
+        <label>Character Name<input id="charName" placeholder="Enter a name"></label>
+        <label>People<select id="charPeople"></select></label>
+        <label>Career<select id="charCareer"></select></label>
+        <label>Background
+          <select id="charBackground">
+            <option>Spacer</option><option>Colonist</option><option>Stationborn</option><option>Corporate Defector</option><option>Frontier Drifter</option><option>Academic</option><option>Former Criminal</option>
+          </select>
+        </label>
+        <h3>Ability Scores</h3>
+        <p class="micro">V0.2 uses a standard-array draft: 15, 14, 13, 12, 10, 8. Full drag/drop assignment comes next.</p>
+        <div class="ability-grid">
+          <label>STR<input type="number" class="ability" data-ability="STR" value="12" min="1" max="20"></label>
+          <label>DEX<input type="number" class="ability" data-ability="DEX" value="15" min="1" max="20"></label>
+          <label>CON<input type="number" class="ability" data-ability="CON" value="13" min="1" max="20"></label>
+          <label>INT<input type="number" class="ability" data-ability="INT" value="14" min="1" max="20"></label>
+          <label>WIS<input type="number" class="ability" data-ability="WIS" value="10" min="1" max="20"></label>
+          <label>CHA<input type="number" class="ability" data-ability="CHA" value="8" min="1" max="20"></label>
+        </div>
+      </div>
+      <div class="sheet-preview">
+        <small>LIVE CHARACTER PREVIEW</small>
+        <h3 id="sheetName">Unnamed Traveller</h3>
+        <p><span id="sheetPeople">Human</span> • <span id="sheetCareer">Bounty Hunter</span> • <span id="sheetBackground">Spacer</span></p>
+        <div class="sheet-stats" id="sheetStats"></div>
+        <hr>
+        <h4>Starting Identity</h4>
+        <p id="sheetIdentity"></p>
+        <button class="btn mini" id="saveCharacter">SAVE TO THIS BROWSER</button>
+        <p class="micro" id="saveStatus"></p>
+      </div>
+    </div>
+  </section>
+
+  <section class="galaxy" data-search="galaxy exploration map systems ancient ruins precursor">
+    <p class="eyebrow">THE GALAXY</p>
+    <h2>The map should become part of the game.</h2>
+    <p>Our next major world-building pass can turn this into named regions, systems, factions and clickable locations. Each system can hold markets, bounties, laws, rumours and adventure hooks.</p>
+    <div class="orb">✦<i></i><i></i><i></i><i></i></div>
+  </section>
+
+  <section>
+    <p class="eyebrow">TABLE TOOL</p>
+    <h2>Dice Roller</h2>
+    <div id="dice" class="dice"></div>
+    <div class="result"><span id="label">Choose a die</span><strong id="result">—</strong></div>
+  </section>
+</main>
+
+<footer><b>✦ THE FAR REACH</b><span>A living galactic TTRPG • Version 0.2</span><a href="#top">BACK TO TOP ↑</a></footer>
+<div class="toast" id="toast"></div>
+<script src="script.js"></script>
+</body>
+</html>
