@@ -1,0 +1,1 @@
+const dice=[4,6,8,10,12,20,100];const box=document.querySelector('#dice');const out=document.querySelector('#result');const label=document.querySelector('#label');dice.forEach(d=>{const b=document.createElement('button');b.textContent='d'+d;b.onclick=()=>{label.textContent='d'+d+' roll';out.textContent=Math.floor(Math.random()*d)+1};box.appendChild(b)});
