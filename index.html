@@ -73,7 +73,7 @@
    <select id="atlasRegion"><option value="">All regions</option></select>
    <select id="atlasLaw"><option value="">All law levels</option><option>Low</option><option>Medium</option><option>High</option><option>Very High</option><option>Extreme</option><option>Restricted</option><option>Unknown</option></select>
  </div>
- <div class="atlas-layout">
+ <div id="atlasStatus" class="atlas-status">Loading navigation data…</div><div class="atlas-layout">
    <div class="galaxy-map" id="galaxyMap"><div class="map-core"></div><svg id="routeLayer" viewBox="0 0 100 100" preserveAspectRatio="none"></svg><div id="planetMarkers"></div></div>
    <aside class="planet-dossier" id="planetDossier"><div class="atlas-empty"><span>◈</span><h3>Select a world</h3><p>Navigation data will appear here.</p></div></aside>
  </div>
@@ -95,5 +95,5 @@
 
 <dialog id="reader"><button class="close" id="closeReader">×</button><article id="readerBody"></article></dialog>
 <footer><span>THE FAR REACH // PLAYTEST v1.0</span><span>All current rules are original playtest material.</span></footer>
-<script src="data.js"></script><script src="galaxy-data.js"></script><script src="script.js"></script><script src="atlas.js"></script>
+<script defer src="data.js"></script><script defer src="galaxy-data.js"></script><script defer src="script.js"></script><script defer src="atlas.js"></script>
 </body></html>

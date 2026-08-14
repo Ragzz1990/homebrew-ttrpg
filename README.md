@@ -1,17 +1,14 @@
-# The Far Reach — Galactic Atlas Build v1.2
+# The Far Reach v1.2.1 — Galaxy Atlas Fix
 
-GitHub Pages static site.
+This replaces v1.2 and fixes atlas initialisation.
 
-New in v1.2:
-- 42 clickable locations in an interactive galaxy map
-- original lightweight SVG planet/system artwork for every atlas entry
-- complete lore/economic dossier for every location
-- wealth, law, industry, faction, exports, imports and black-market ratings
-- search and filters
-- ninth Career: Smuggler (levels 1–20)
-- three Smuggler specialisations: Blockade Runner, Black-Market Broker, Ghost Hauler
-- fictional contraband / high-risk drug-run system
-- interactive contraband route/profit/Heat planner
-- anchored setting in the real NGC 6872 (Condor Galaxy), while all playable worlds remain fictional
+Key fixes:
+- all main JavaScript now uses `defer`
+- atlas waits for DOMContentLoaded
+- clear on-page status if galaxy data fails to load
+- map works even if planet image files are missing
+- first planet auto-opens so successful loading is obvious
+- region dropdown and markers initialise together
 
-Upload the entire contents of this folder to the repository root. Keep the `assets/planets/` folder structure intact.
+Upload all files and folders from this package to the repository root, replacing v1.2.
+Keep `assets/planets/` intact.
