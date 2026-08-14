@@ -7,13 +7,59 @@
 <link rel="stylesheet" href="styles.css">
 </head>
 <body>
+
+<div id="entryGate" class="entry-gate" aria-live="polite">
+  <div class="entry-noise"></div>
+  <div class="entry-frame">
+    <div class="entry-topline">
+      <span>FAR REACH NAVCOM</span>
+      <span>ACCESS NODE // 7A</span>
+    </div>
+
+    <div class="entry-core">
+      <div class="bio-panel">
+        <div class="bio-title">BIOMETRIC ACCESS REQUIRED</div>
+        <div class="fingerprint-wrap">
+          <div class="fingerprint">
+            <span class="fp-line l1"></span><span class="fp-line l2"></span><span class="fp-line l3"></span>
+            <span class="fp-line l4"></span><span class="fp-line l5"></span><span class="fp-line l6"></span>
+            <span class="fp-line l7"></span><span class="fp-line l8"></span>
+          </div>
+          <div class="scan-line"></div>
+        </div>
+        <button id="beginScan" class="scan-button">PLACE HAND / BEGIN SCAN</button>
+      </div>
+
+      <div class="entry-status">
+        <div class="entry-logo">THE <strong>FAR REACH</strong></div>
+        <div id="scanStatus" class="scan-status">AWAITING BIOMETRIC INPUT</div>
+        <div class="status-list" id="statusList">
+          <div><span>IDENTITY</span><b>—</b></div>
+          <div><span>NEURAL PATTERN</span><b>—</b></div>
+          <div><span>CYBERNETIC TRACE</span><b>—</b></div>
+          <div><span>VEIN RESONANCE</span><b>—</b></div>
+          <div><span>ACCESS STATUS</span><b>LOCKED</b></div>
+        </div>
+        <div class="progress-shell"><div id="scanProgress" class="scan-progress"></div></div>
+        <div id="entryMessage" class="entry-message">AUTHENTICATION REQUIRED BEFORE GALACTIC NAVIGATION ACCESS.</div>
+      </div>
+    </div>
+
+    <div class="entry-footer">
+      <span>SECURE CONNECTION</span>
+      <span>CONDOR GALAXY RELAY</span>
+      <span>BUILD 1.3.1</span>
+    </div>
+  </div>
+</div>
+
 <header class="topbar">
   <a class="brand" href="#home"><span class="sigil">◈</span> THE FAR REACH</a>
   <button id="navToggle" aria-label="Toggle navigation">☰</button>
   <nav id="nav">
     <a href="#home">Home</a><a href="#play">Play</a><a href="#rules">Rules</a>
     <a href="#characters">Characters</a><a href="#compendium">Compendium</a>
-    <a href="#galaxy">Galaxy</a><a href="#underworld">Underworld</a><a href="#gm">GM</a>
+    <a href="#galaxy">Galaxy</a><a href="#shipyard">Shipyard</a><a href="#stores">Stores</a><a href="#underworld">Underworld</a><a href="#gm">GM</a>
   </nav>
 </header>
 
@@ -78,7 +124,7 @@
    <aside class="planet-dossier" id="planetDossier"><div class="atlas-empty"><span>◈</span><h3>Select a world</h3><p>Navigation data will appear here.</p></div></aside>
  </div>
 </section>
-<section id="underworld" class="panel">
+<section id="shipyard" class="panel"><div class="section-head"><span>05C</span><div><h2>Shipyard</h2><p>Compare vessels by crew, cargo, price and role.</p></div></div><div class="commerce-toolbar"><input id="shipSearch" placeholder="Search ships..."><select id="shipRole"><option value="">All roles</option></select><select id="shipBudget"><option value="">Any budget</option><option value="200000">Up to ₡200k</option><option value="300000">Up to ₡300k</option><option value="500000">Up to ₡500k</option><option value="1000000">Up to ₡1m</option></select></div><div class="commerce-layout"><div id="shipGrid" class="store-grid"></div><aside id="shipDetail" class="store-detail"></aside></div></section><section id="stores" class="panel"><div class="section-head"><span>05D</span><div><h2>Galactic Stores</h2><p>Weapons, armour, shields, robots and ship modules.</p></div></div><div id="economyNote" class="economy-note"></div><div class="commerce-toolbar"><input id="storeSearch" placeholder="Search items..."><select id="storeCategory"><option value="">All categories</option></select><select id="storeLegality"><option value="">All legality</option></select></div><div class="commerce-layout"><div id="storeGrid" class="store-grid"></div><aside id="itemDetail" class="store-detail"></aside></div></section><section id="underworld" class="panel">
  <div class="section-head"><span>05B</span><div><h2>Underworld</h2><p>Smuggling, contraband, black markets and high-risk cargo runs are now full campaign paths.</p></div></div>
  <div class="cards" id="underworldCards"></div>
  <div class="run-planner">
@@ -95,5 +141,185 @@
 
 <dialog id="reader"><button class="close" id="closeReader">×</button><article id="readerBody"></article></dialog>
 <footer><span>THE FAR REACH // PLAYTEST v1.0</span><span>All current rules are original playtest material.</span></footer>
-<script defer src="data.js"></script><script defer src="galaxy-data.js"></script><script defer src="script.js"></script><script defer src="atlas.js"></script>
-</body></html>
+<script defer src="data.js"></script><script defer src="commerce-data.js"></script><script defer src="script.js"></script>
+<script>
+(function(){
+  const ATLAS = [{"name": "Vanta Prime", "slug": "vanta-prime", "region": "Concord Core", "x": 82, "y": 58, "wealth": "Opulent", "law": "Corporate Law", "industry": "Finance / Cybernetics", "faction": "Vanta Combine", "exports": ["Luxury goods", "Cybernetics", "Financial services"], "imports": ["Raw materials", "Rare foods"], "blackMarket": "High", "lore": "A glittering core-world ecumenopolis wrapped in orbital finance rings. Vanta Prime sells stability, status and patented technology at a premium. Beneath its immaculate transit decks, corporate espionage is effectively another industry.", "rumour": "The Combine has quietly begun purchasing old star charts that predate the Crossing records.", "hooks": ["Corporate espionage", "High-stakes auctions", "Executive protection"], "image": "assets/planets/vanta-prime.svg"}, {"name": "Khepri Belt", "slug": "khepri-belt", "region": "Meridian Belt", "x": 66, "y": 50, "wealth": "Working", "law": "Company Law", "industry": "Asteroid Mining", "faction": "Independent Miners", "exports": ["Metals", "Reactor ore", "Industrial ceramics"], "imports": ["Food", "Medicine", "Luxury goods"], "blackMarket": "High", "lore": "Thousands of inhabited rocks orbit a pale star. Refinery lights make the belt look like a broken necklace. Independent miners and corporate claim crews constantly dispute ownership of drifting ore fields.", "rumour": "Shaft crews report finding manufactured cavities inside an asteroid believed to be older than the system.", "hooks": ["Claim wars", "Salvage races", "Labour disputes"], "image": "assets/planets/khepri-belt.svg"}, {"name": "Merrow", "slug": "merrow", "region": "Meridian Belt", "x": 60, "y": 61, "wealth": "Comfortable", "law": "Civic Law", "industry": "Agriculture", "faction": "Meridian Assembly", "exports": ["Food", "Biofuel", "Textiles"], "imports": ["Machinery", "Electronics"], "blackMarket": "Low", "lore": "An emerald agricultural world whose floating grain platforms feed half the surrounding sector. Merrow's wealth is broad rather than spectacular, and local politics fiercely resist corporate ownership.", "rumour": "A fungal blight appears only in crops grown from one ancient seed bank.", "hooks": ["Trade diplomacy", "Eco mystery", "Political intrigue"], "image": "assets/planets/merrow.svg"}, {"name": "Orison-9", "slug": "orison-9", "region": "Far Reach", "x": 76, "y": 75, "wealth": "Poor", "law": "Frontier Law", "industry": "Colonial Extraction", "faction": "Frontier Authority", "exports": ["Rare minerals", "Survey data"], "imports": ["Medicine", "Food", "Parts"], "blackMarket": "Very High", "lore": "A dry frontier colony of dust-red mesas and prefabricated settlements. Orison-9 is famous for desperate contracts, medical shortages and ruins that do not match any known civilisation.", "rumour": "A repeating signal beneath the outer moon answers transmissions nobody sends.", "hooks": ["Starter adventure", "Ruins", "Black-market medicine"], "image": "assets/planets/orison-9.svg"}, {"name": "Saint Leto Station", "slug": "saint-leto-station", "region": "Meridian Belt", "x": 56, "y": 43, "wealth": "Comfortable", "law": "Compact Neutrality", "industry": "Bounty Exchange", "faction": "Hunter's Compact", "exports": ["Contracts", "Intelligence", "Prison transport"], "imports": ["Everything"], "blackMarket": "Medium", "lore": "A rotating station built around a captured comet. Saint Leto is neutral ground for licensed hunters, bail agents, information brokers and targets rich enough to negotiate.", "rumour": "The Compact's sealed archive contains bounties issued against people officially dead for centuries.", "hooks": ["Bounty board", "Rival hunters", "Neutral negotiations"], "image": "assets/planets/saint-leto-station.svg"}, {"name": "Nacre", "slug": "nacre", "region": "Pilgrim Veins", "x": 48, "y": 70, "wealth": "Wealthy", "law": "Consensus Law", "industry": "Ocean Engineering", "faction": "Velari Councils", "exports": ["Pressure tech", "Biomaterials", "Luxury aquatics"], "imports": ["Metals", "Dry-world foods"], "blackMarket": "Low", "lore": "A deep ocean world with luminous floating cities suspended above storm bands. Velari architecture changes shape with tides and local gravity.", "rumour": "A city beneath the southern sea has stopped rising for its seasonal migration.", "hooks": ["Undersea exploration", "Diplomacy", "Luxury trade"], "image": "assets/planets/nacre.svg"}, {"name": "Cairn", "slug": "cairn", "region": "Meridian Belt", "x": 38, "y": 49, "wealth": "Working", "law": "Clan Compact", "industry": "Mineral Cultivation", "faction": "Khelt Assemblies", "exports": ["Living minerals", "Ceramics", "Structural crystal"], "imports": ["Organics", "Electronics"], "blackMarket": "Medium", "lore": "Khelt settlements grow around vast mineral gardens cultivated for both food-colony chemistry and construction. Outsiders often mistake the slow-moving mineral fields for geological formations.", "rumour": "One growth field has begun forming symbols no Khelt colony claims to be producing.", "hooks": ["Alien biology", "Mining", "Cultural mystery"], "image": "assets/planets/cairn.svg"}, {"name": "Lumenless", "slug": "lumenless", "region": "Concord Core", "x": 33, "y": 36, "wealth": "Wealthy", "law": "Technocratic", "industry": "Heavy Industry", "faction": "Orrin Directorate", "exports": ["Sensors", "Power systems", "Industrial optics"], "imports": ["Organic goods", "Art"], "blackMarket": "Low", "lore": "An industrial moon designed for Orrin senses: almost no visible-light signage, but the electromagnetic landscape is dazzling. Human visitors rely on augmented navigation overlays.", "rumour": "A silent district is electrically invisible despite drawing enormous power.", "hooks": ["Tech noir", "Hacking", "Orrin culture"], "image": "assets/planets/lumenless.svg"}, {"name": "Twinmind", "slug": "twinmind", "region": "Concord Core", "x": 44, "y": 29, "wealth": "Comfortable", "law": "Dual Assembly", "industry": "Education / Arbitration", "faction": "Naruun Synod", "exports": ["Mediators", "Cognitive tech", "Education"], "imports": ["Rare materials"], "blackMarket": "Low", "lore": "Twinmind's institutions are famously paired: two chambers, two judges and often two simultaneous arguments. The world exports negotiators trusted in disputes where no one trusts anyone else.", "rumour": "One chamber of the planetary assembly has begun voting differently from its paired counterpart with no record of dissent.", "hooks": ["Diplomacy", "Mind mysteries", "Politics"], "image": "assets/planets/twinmind.svg"}, {"name": "Archive 7", "slug": "archive-7", "region": "Pilgrim Veins", "x": 51, "y": 22, "wealth": "Wealthy", "law": "Archive Charter", "industry": "Memory Preservation", "faction": "The Continuity", "exports": ["Historical data", "Identity services", "Memory repair"], "imports": ["Secure hardware", "Rare bio-gels"], "blackMarket": "Restricted", "lore": "A vast Echoed archive station where memory-organisms, personal histories and disputed identities are stored in redundant vaults. Entry to the lower stacks requires sponsorship.", "rumour": "A Crossing-era memory fragment contains a map of stars that should not have been visible from Earth.", "hooks": ["Crossing lore", "Heists", "Identity drama"], "image": "assets/planets/archive-7.svg"}, {"name": "Karrox", "slug": "karrox", "region": "Shatterline", "x": 72, "y": 36, "wealth": "Poor", "law": "Corporate Martial", "industry": "Deep Mining", "faction": "Vanta Subsidiaries", "exports": ["Iridium", "Cobalt", "Starship alloys"], "imports": ["Food", "Water", "Medicine"], "blackMarket": "Very High", "lore": "A furnace world scarred by open-pit mines large enough to see from orbit. Workers live in shielded canyon blocks beneath permanent industrial haze; the abandoned shafts host a vast contraband economy.", "rumour": "Miners in Shaft 81 broke through into a chamber whose walls heal after being cut.", "hooks": ["Mining horror", "Labour rebellion", "Smuggling"], "image": "assets/planets/karrox.svg"}, {"name": "Freeport Sable", "slug": "freeport-sable", "region": "Black Meridian", "x": 83, "y": 45, "wealth": "Uneven", "law": "Lawless", "industry": "Contraband / Repairs", "faction": "Sable Council", "exports": ["Stolen goods", "Forged IDs", "Ship modifications"], "imports": ["Fuel", "Weapons", "Information"], "blackMarket": "Extreme", "lore": "A pirate-built station welded from seven wrecks. Anything can be bought here if you know which airlock to knock on, and every deck has a different idea of what counts as law.", "rumour": "Someone is buying intact military transponders in bulk and paying triple market value.", "hooks": ["Black market", "Pirates", "Ship mods"], "image": "assets/planets/freeport-sable.svg"}, {"name": "Red Mercy", "slug": "red-mercy", "region": "Black Meridian", "x": 88, "y": 54, "wealth": "Poor", "law": "Syndicate Rule", "industry": "Chemical Production", "faction": "Mercy Families", "exports": ["Pharmaceutical precursors", "Neon Dust", "Red Mercy"], "imports": ["Food", "Clean water", "Weapons"], "blackMarket": "Extreme", "lore": "A rust-coloured moon dominated by chemical basins and syndicate refinery towns. Its legal pharmaceutical industry is enormous; its illegal labs are even larger.", "rumour": "A new batch of Red Mercy contains microscopic structures resembling Vein lattice.", "hooks": ["Drug runs", "Syndicates", "Chemical mystery"], "image": "assets/planets/red-mercy.svg"}, {"name": "Aurelia", "slug": "aurelia", "region": "Concord Core", "x": 40, "y": 17, "wealth": "Opulent", "law": "High Civic", "industry": "Luxury / Tourism", "faction": "Aurelian Houses", "exports": ["Luxury goods", "Art", "Entertainment"], "imports": ["Rare foods", "Exotics"], "blackMarket": "High", "lore": "A jewel-like resort world of engineered islands and orbital palaces. Wealthy travellers come to disappear behind privacy law and return with expensive stories.", "rumour": "Several elite guests have vanished from sealed private islands without triggering security systems.", "hooks": ["Luxury heists", "Social intrigue", "High-value smuggling"], "image": "assets/planets/aurelia.svg"}, {"name": "Brasshaven", "slug": "brasshaven", "region": "Meridian Belt", "x": 28, "y": 57, "wealth": "Working", "law": "Union Law", "industry": "Shipbuilding", "faction": "Free Dock Union", "exports": ["Ship modules", "Hull plating", "Repair services"], "imports": ["Ore", "Electronics", "Food"], "blackMarket": "Medium", "lore": "A smoky orbital shipyard surrounding a gas giant. Brasshaven can rebuild almost anything that reaches its docks, and its union crews remember every captain who refused to pay.", "rumour": "A derelict ship under repair contains a second set of rooms not visible from outside.", "hooks": ["Ship upgrades", "Union jobs", "Salvage"], "image": "assets/planets/brasshaven.svg"}, {"name": "Gallowglass", "slug": "gallowglass", "region": "Shatterline", "x": 59, "y": 82, "wealth": "Poor", "law": "Military Quarantine", "industry": "Wreck Salvage", "faction": "Frontier Authority", "exports": ["Military salvage", "Scrap"], "imports": ["Medicine", "Fuel"], "blackMarket": "High", "lore": "A shattered moon orbiting a battlefield graveyard. Salvagers search the debris under strict quarantine because unexploded weapons and autonomous war machines remain active.", "rumour": "A capital-ship wreck recently transmitted a valid crew muster code after 117 years of silence.", "hooks": ["War salvage", "Drones", "Ghost ship"], "image": "assets/planets/gallowglass.svg"}, {"name": "Eidolon", "slug": "eidolon", "region": "Silent Expanse", "x": 92, "y": 21, "wealth": "Unknown", "law": "Unknown", "industry": "Unknown", "faction": "None", "exports": [], "imports": [], "blackMarket": "Unknown", "lore": "A blue-white world visible through a damaged route. Every probe sent toward Eidolon returns exactly one image: the planet, one hour closer, even when the probe never moved.", "rumour": "The image timestamp is always tomorrow.", "hooks": ["Deep mystery", "Precursor", "Time anomaly"], "image": "assets/planets/eidolon.svg"}, {"name": "Ashfall", "slug": "ashfall", "region": "Far Reach", "x": 91, "y": 67, "wealth": "Poor", "law": "Settler Law", "industry": "Geothermal Industry", "faction": "Ashfall Compact", "exports": ["Thermal cells", "Rare salts"], "imports": ["Filters", "Food", "Machinery"], "blackMarket": "High", "lore": "Volcanic ash covers almost every surface, forcing cities into enormous pressurised calderas. Pilots navigate by thermal beacon through permanent darkness.", "rumour": "A newly opened lava tube leads to a metal door kilometres below the crust.", "hooks": ["Hazard world", "Mining", "Exploration"], "image": "assets/planets/ashfall.svg"}, {"name": "Kestrel", "slug": "kestrel", "region": "Meridian Belt", "x": 25, "y": 73, "wealth": "Comfortable", "law": "Republic", "industry": "Aerospace / Pilots", "faction": "Kestrel Republic", "exports": ["Engines", "Navigation systems", "Pilots"], "imports": ["Fuel", "Metals"], "blackMarket": "Medium", "lore": "A high-gravity world famous for flight academies built along equatorial cliffs. Kestrel pilots have an irritating habit of assuming everyone else flies badly.", "rumour": "Someone is sabotaging racers before the sector's largest starship rally.", "hooks": ["Racing", "Pilot culture", "Sabotage"], "image": "assets/planets/kestrel.svg"}, {"name": "Morrowdeep", "slug": "morrowdeep", "region": "Black Meridian", "x": 78, "y": 88, "wealth": "Poor", "law": "Clan Law", "industry": "Fuel Harvesting", "faction": "Blackwake Clans", "exports": ["Fuel", "Volatiles"], "imports": ["Parts", "Weapons", "Food"], "blackMarket": "Extreme", "lore": "Fuel rigs drift in the upper atmosphere of a black gas giant. Most platforms pledge to one pirate clan or another, and outsiders are useful only while paying.", "rumour": "A rig has discovered something alive inside a hydrogen storm.", "hooks": ["Pirates", "Fuel jobs", "Monster"], "image": "assets/planets/morrowdeep.svg"}, {"name": "Helix", "slug": "helix", "region": "Concord Core", "x": 21, "y": 20, "wealth": "Wealthy", "law": "Corporate", "industry": "Biomedicine", "faction": "Helix Biologics", "exports": ["Medicine", "Gene therapy", "Biotech"], "imports": ["Samples", "Rare compounds"], "blackMarket": "Restricted", "lore": "A clean white-green world of medical arcologies and protected research preserves. Helix Biologics is both one of the galaxy's greatest lifesaving institutions and one of its most feared data owners.", "rumour": "A clinic claims a dead patient has continued submitting biometric updates.", "hooks": ["Medical intrigue", "Corporate secrets", "Bioethics"], "image": "assets/planets/helix.svg"}, {"name": "Tithe", "slug": "tithe", "region": "Pilgrim Veins", "x": 31, "y": 85, "wealth": "Working", "law": "Temple Charter", "industry": "Pilgrimage", "faction": "First Gate Choir", "exports": ["Relics", "Pilgrim services"], "imports": ["Food", "Offerings", "Transport"], "blackMarket": "Medium", "lore": "A desert pilgrimage world where millions walk beneath the exposed remains of a dormant Vein structure. The economy runs on visitors, faith and relic authentication.", "rumour": "For the first time in recorded history, one segment of the dead Gate has begun humming.", "hooks": ["Religion", "Vein lore", "Relic scams"], "image": "assets/planets/tithe.svg"}, {"name": "Coldwater", "slug": "coldwater", "region": "Far Reach", "x": 84, "y": 92, "wealth": "Poor", "law": "Cooperative", "industry": "Ice / Water Mining", "faction": "Colonial Cooperative", "exports": ["Water", "Deuterium", "Ice"], "imports": ["Heat systems", "Food"], "blackMarket": "High", "lore": "An ice moon whose settlements are bored deep into blue glaciers. Water tankers keep several nearby frontier systems alive.", "rumour": "The lowest borehole hit a warm ocean containing manufactured lights.", "hooks": ["Ice exploration", "Trade", "Under-ice mystery"], "image": "assets/planets/coldwater.svg"}, {"name": "Ivory Loop", "slug": "ivory-loop", "region": "Concord Core", "x": 19, "y": 43, "wealth": "Opulent", "law": "Banking Charter", "industry": "Finance / Secure Storage", "faction": "Loop Consortium", "exports": ["Banking", "Vaulting", "Insurance"], "imports": ["Luxury", "Security tech"], "blackMarket": "Very High", "lore": "A ring habitat containing the sector's most secure private vaults. Its law treats property crime more seriously than many worlds treat murder.", "rumour": "A vault owner has offered a fortune to steal their own property before a court freezes it.", "hooks": ["Heists", "Banking", "White-collar crime"], "image": "assets/planets/ivory-loop.svg"}, {"name": "Dross", "slug": "dross", "region": "Shatterline", "x": 50, "y": 92, "wealth": "Poor", "law": "None", "industry": "Scrap / Smuggling", "faction": "Independent Crews", "exports": ["Scrap", "Unregistered parts"], "imports": ["Everything"], "blackMarket": "Extreme", "lore": "A debris-choked rogue planet surrounded by thousands of temporary salvage camps. No government lasts longer than its ammunition supply.", "rumour": "A scavenger found a perfectly preserved human language plaque bearing a date before the Crossing.", "hooks": ["Lawless salvage", "Smuggling", "Crossing clue"], "image": "assets/planets/dross.svg"}, {"name": "Verdigris", "slug": "verdigris", "region": "Meridian Belt", "x": 18, "y": 68, "wealth": "Comfortable", "law": "Eco Charter", "industry": "Biomaterials", "faction": "Verdigris Cooperative", "exports": ["Medicinal plants", "Biopolymers", "Food"], "imports": ["Metals", "Tech"], "blackMarket": "Low", "lore": "A dense copper-green jungle world with carefully regulated settlements. Export licences are strict because a single invasive organism could devastate other systems.", "rumour": "Black-market hunters are paying for eggs from a supposedly extinct predator.", "hooks": ["Jungle exploration", "Bio-smuggling", "Conservation"], "image": "assets/planets/verdigris.svg"}, {"name": "Rookery", "slug": "rookery", "region": "Black Meridian", "x": 95, "y": 40, "wealth": "Uneven", "law": "Pirate Moot", "industry": "Piracy / Shipbreaking", "faction": "Blackwake Clans", "exports": ["Stolen ships", "Weapons", "Salvage"], "imports": ["Fuel", "Luxury"], "blackMarket": "Extreme", "lore": "A hollowed asteroid city where pirate captains meet under temporary truce. Its outer docks are built from ships whose owners lost arguments.", "rumour": "A captain has arrived flying a vessel registered to a government that vanished two centuries ago.", "hooks": ["Pirate politics", "Ship theft", "Bounties"], "image": "assets/planets/rookery.svg"}, {"name": "Glassharbour", "slug": "glassharbour", "region": "Meridian Belt", "x": 45, "y": 64, "wealth": "Comfortable", "law": "Mercantile", "industry": "Trade / Entertainment", "faction": "Free Traders Guild", "exports": ["Trade services", "Luxury", "Information"], "imports": ["Everything"], "blackMarket": "High", "lore": "A bright station built inside a transparent crystalline asteroid. The public markets are respectable; the private auction decks sell things respectable merchants pretend not to want.", "rumour": "A sealed Precursor object is being auctioned without the seller knowing what it is.", "hooks": ["Auctions", "Trade", "Smuggling"], "image": "assets/planets/glassharbour.svg"}, {"name": "Pale", "slug": "pale", "region": "Silent Expanse", "x": 97, "y": 10, "wealth": "Unknown", "law": "None", "industry": "Unknown", "faction": "None", "exports": [], "imports": [], "blackMarket": "Unknown", "lore": "A colourless planet orbiting a dim star. Long-range spectra suggest oceans, atmosphere and organic chemistry, yet the world reflects light as though every surface were coated in ash.", "rumour": "Every survey ship reports a different number of moons.", "hooks": ["Uncharted", "Horror", "Exploration"], "image": "assets/planets/pale.svg"}, {"name": "Concordia Gate", "slug": "concordia-gate", "region": "Concord Core", "x": 13, "y": 52, "wealth": "Wealthy", "law": "Treaty Zone", "industry": "Transit", "faction": "Meridian Assembly", "exports": ["Transit", "Customs services"], "imports": ["Everything"], "blackMarket": "Low", "lore": "The largest functioning Vein hub in the region, surrounded by customs stations, hotels, repair docks and embassies. Almost every legal journey into the Core passes through it.", "rumour": "Customs algorithms have begun flagging ships that have not yet arrived.", "hooks": ["Travel hub", "Customs", "Gate mystery"], "image": "assets/planets/concordia-gate.svg"}, {"name": "Ravel", "slug": "ravel", "region": "Black Meridian", "x": 69, "y": 12, "wealth": "Uneven", "law": "Syndicate Pact", "industry": "Data Crime", "faction": "Ravel Houses", "exports": ["Stolen data", "Forgery", "ICE"], "imports": ["Hardware", "Luxury"], "blackMarket": "Extreme", "lore": "A neon-lit urban moon where identity can be rented by the hour. Ravel's criminal houses specialise in forged citizenship, hacked debt records and corporate blackmail.", "rumour": "A broker is selling complete identities belonging to people who have not been born yet.", "hooks": ["Cybercrime", "Forgery", "Hacking"], "image": "assets/planets/ravel.svg"}, {"name": "Blue Hush", "slug": "blue-hush", "region": "Pilgrim Veins", "x": 35, "y": 95, "wealth": "Working", "law": "Monastic", "industry": "Sensor Research", "faction": "Hush Monasteries", "exports": ["Sensors", "Signal analysis"], "imports": ["Food", "Parts"], "blackMarket": "Restricted", "lore": "A quiet ocean moon whose monasteries operate enormous deep-space listening arrays. Visitors are expected to maintain strict electromagnetic silence.", "rumour": "The arrays have detected a repeating human heartbeat from outside mapped space.", "hooks": ["Signals", "Monks", "Deep space"], "image": "assets/planets/blue-hush.svg"}, {"name": "Anvil", "slug": "anvil", "region": "Shatterline", "x": 63, "y": 28, "wealth": "Working", "law": "Military", "industry": "Weapons Manufacturing", "faction": "Frontier Authority", "exports": ["Weapons", "Armour", "Ammunition"], "imports": ["Ore", "Food"], "blackMarket": "Restricted", "lore": "A fortified industrial world whose cities are partially underground. Anvil supplies weapons to frontier law enforcement and therefore attracts every thief with ambition.", "rumour": "A complete shipment of military rifles vanished from a sealed orbital elevator.", "hooks": ["Arms jobs", "Security", "Theft"], "image": "assets/planets/anvil.svg"}, {"name": "Saffron", "slug": "saffron", "region": "Meridian Belt", "x": 29, "y": 14, "wealth": "Comfortable", "law": "Civic", "industry": "Spice / Luxury Agriculture", "faction": "Saffron League", "exports": ["Spices", "Perfumes", "Luxury foods"], "imports": ["Machinery", "Water"], "blackMarket": "Medium", "lore": "Warm ochre continents produce rare flavour compounds coveted across the Core. Merchant families fight elaborate trade wars that rarely involve open violence.", "rumour": "A newly cultivated spice induces identical dreams in unrelated species.", "hooks": ["Luxury trade", "Merchant rivalry", "Alien biology"], "image": "assets/planets/saffron.svg"}, {"name": "Vigil", "slug": "vigil", "region": "Far Reach", "x": 87, "y": 31, "wealth": "Working", "law": "Military Frontier", "industry": "Early Warning", "faction": "Frontier Authority", "exports": ["Sensor data", "Security"], "imports": ["Food", "Parts", "Personnel"], "blackMarket": "Medium", "lore": "A bleak fortress moon guarding a damaged Vein route. Its sensor arrays watch the Black Meridian, and its crews live with the certainty that one day something will come through.", "rumour": "An unmanned beacon beyond the route has started transmitting Vigil's own classified challenge codes.", "hooks": ["Military", "Deep-space threat", "Recon"], "image": "assets/planets/vigil.svg"}, {"name": "Mosaic", "slug": "mosaic", "region": "Concord Core", "x": 10, "y": 74, "wealth": "Opulent", "law": "Federal", "industry": "Culture / Media", "faction": "Mosaic Federation", "exports": ["Media", "Fashion", "Art"], "imports": ["Rare materials", "Stories"], "blackMarket": "High", "lore": "A cosmopolitan city-world famous for mixed-species districts and entertainment industries. Reputation can be worth more than credits here.", "rumour": "An anonymous media account is predicting major political assassinations minutes before they happen.", "hooks": ["Celebrity", "Social play", "Information"], "image": "assets/planets/mosaic.svg"}, {"name": "Graveyard 12", "slug": "graveyard-12", "region": "Shatterline", "x": 58, "y": 8, "wealth": "None", "law": "Quarantine", "industry": "None", "faction": "None", "exports": ["Salvage"], "imports": ["—"], "blackMarket": "Extreme", "lore": "An interdicted system containing the remains of a fleet battle so violent that wreck fields orbit the star like rings. Entry is illegal without military permit.", "rumour": "Several wrecks recently altered orbit simultaneously, as though avoiding a collision.", "hooks": ["Forbidden salvage", "War mystery", "Autonomous ships"], "image": "assets/planets/graveyard-12.svg"}, {"name": "Hearth", "slug": "hearth", "region": "Meridian Belt", "x": 12, "y": 89, "wealth": "Comfortable", "law": "Local Democracy", "industry": "Manufacturing / Food", "faction": "Independent", "exports": ["Consumer goods", "Food", "Small craft"], "imports": ["Rare ore", "Cybernetics"], "blackMarket": "Low", "lore": "A pleasant temperate world that markets itself as the safest place in the Belt to raise a family. Its reliability makes it economically important and criminally attractive.", "rumour": "A local election is being funded by money traced to three rival pirate clans.", "hooks": ["Political crime", "Family world", "Trade"], "image": "assets/planets/hearth.svg"}, {"name": "Driftglass", "slug": "driftglass", "region": "Far Reach", "x": 94, "y": 83, "wealth": "Poor", "law": "None", "industry": "Salvage / Contraband", "faction": "Drifter Fleets", "exports": ["Alien salvage", "Contraband"], "imports": ["Fuel", "Food"], "blackMarket": "Extreme", "lore": "A migrating flotilla rather than a planet: hundreds of ships and habitats orbit an icy rogue world. Driftglass changes location every few years and sells things found beyond mapped routes.", "rumour": "A trader has brought back an Orrin-made device from a region no Orrin expedition ever visited.", "hooks": ["Mobile market", "Deep salvage", "Underworld"], "image": "assets/planets/driftglass.svg"}, {"name": "Solace", "slug": "solace", "region": "Pilgrim Veins", "x": 20, "y": 97, "wealth": "Comfortable", "law": "Sanctuary Law", "industry": "Medicine / Refuge", "faction": "Sanctuary Orders", "exports": ["Medical services", "Refuge"], "imports": ["Medicine", "Food", "Donations"], "blackMarket": "Low", "lore": "A moon-sized sanctuary settlement where extradition is almost impossible. Refugees, defectors and political dissidents live beside hospitals supported by donations.", "rumour": "A powerful government demands the return of a patient whose body supposedly contains stolen state property.", "hooks": ["Refuge", "Medical ethics", "Diplomacy"], "image": "assets/planets/solace.svg"}, {"name": "Obsidian Crown", "slug": "obsidian-crown", "region": "Black Meridian", "x": 99, "y": 66, "wealth": "Wealthy", "law": "Autocracy", "industry": "Piracy / Luxury", "faction": "Crown Syndicate", "exports": ["Contraband", "Luxury", "Protection"], "imports": ["Weapons", "Food", "Cybernetics"], "blackMarket": "Extreme", "lore": "A volcanic world ruled by a pirate dynasty wealthy enough to imitate a royal court. Its capital is beautiful, brutal and filled with captains seeking favour.", "rumour": "The Crown is offering legal immunity to the crew that steals a particular Vanta prototype.", "hooks": ["Crime court", "Major heist", "Syndicate"], "image": "assets/planets/obsidian-crown.svg"}, {"name": "Siren's Wake", "slug": "siren-s-wake", "region": "Far Reach", "x": 80, "y": 5, "wealth": "Unknown", "law": "None", "industry": "Unknown", "faction": "None", "exports": [], "imports": [], "blackMarket": "Unknown", "lore": "A gas giant surrounded by a broad violet ring. Ships passing near the rings receive personalised distress calls using voices from their own crew histories.", "rumour": "The signal knows secrets never transmitted electronically.", "hooks": ["Psychological mystery", "Exploration", "Anomaly"], "image": "assets/planets/siren-s-wake.svg"}, {"name": "Hollow Star", "slug": "hollow-star", "region": "Silent Expanse", "x": 100, "y": 95, "wealth": "Unknown", "law": "Unknown", "industry": "Unknown", "faction": "Unknown", "exports": [], "imports": [], "blackMarket": "Unknown", "lore": "Charts mark only a gravitational mass and a cold infrared shell. No visible star exists at its centre, yet objects orbit as though one does.", "rumour": "A damaged Custodian map labels the system with a symbol translated only as 'door behind door'.", "hooks": ["Campaign endgame", "Vein mystery", "Unknown"], "image": "assets/planets/hollow-star.svg"}];
+
+  function startAtlas(){
+    const status=document.querySelector("#atlasStatus");
+    const markers=document.querySelector("#planetMarkers");
+    const dossier=document.querySelector("#planetDossier");
+    const routes=document.querySelector("#routeLayer");
+    const regionSel=document.querySelector("#atlasRegion");
+    const lawSel=document.querySelector("#atlasLaw");
+    const search=document.querySelector("#atlasSearch");
+
+    if(!markers||!dossier||!routes||!regionSel||!lawSel||!search){
+      if(status) status.textContent="Atlas interface failed to initialise.";
+      return;
+    }
+
+    const regions=[...new Set(ATLAS.map(p=>p.region))].sort();
+    regionSel.innerHTML='<option value="">All regions</option>'+regions.map(x=>'<option value="'+x+'">'+x+'</option>').join("");
+
+    function cls(p){
+      let c="";
+      if(p.blackMarket==="Extreme" || String(p.law).toLowerCase().includes("lawless")) c+=" lawless";
+      if(["Wealthy","Opulent"].includes(p.wealth)) c+=" wealthy";
+      if(p.wealth==="Unknown") c+=" unknown";
+      return c;
+    }
+
+    function renderRoutes(){
+      routes.innerHTML="";
+      const seen=new Set();
+      ATLAS.forEach((p,i)=>{
+        ATLAS.map((q,j)=>({q,j,d:Math.hypot(p.x-q.x,p.y-q.y)}))
+          .filter(o=>o.j!==i)
+          .sort((a,b)=>a.d-b.d)
+          .slice(0,2)
+          .forEach(o=>{
+            const key=[i,o.j].sort((a,b)=>a-b).join("-");
+            if(seen.has(key)) return;
+            seen.add(key);
+            const line=document.createElementNS("http://www.w3.org/2000/svg","line");
+            line.setAttribute("x1",p.x);
+            line.setAttribute("y1",p.y);
+            line.setAttribute("x2",o.q.x);
+            line.setAttribute("y2",o.q.y);
+            routes.appendChild(line);
+          });
+      });
+    }
+
+    function selectPlanet(p,button){
+      document.querySelectorAll(".planet-marker").forEach(x=>x.classList.remove("active"));
+      if(button) button.classList.add("active");
+
+      const exportsHtml=(p.exports||[]).length
+        ? p.exports.map(x=>'<span>'+x+'</span>').join("")
+        : "<span>Unknown</span>";
+      const importsHtml=(p.imports||[]).length
+        ? p.imports.map(x=>'<span>'+x+'</span>').join("")
+        : "<span>Unknown</span>";
+      const hooks=(p.hooks||[]).map(x=>'<span>'+x+'</span>').join("");
+
+      dossier.innerHTML=
+        '<img class="planet-hero" src="'+p.image+'" alt="Original artwork of '+p.name+'" '+
+        'onerror="this.style.display=\'none\';">'+
+        '<div class="dossier-body">'+
+        '<span class="atlas-badge">'+String(p.region).toUpperCase()+'</span>'+
+        '<h3>'+p.name+'</h3>'+
+        '<p>'+p.lore+'</p>'+
+        '<div class="planet-meta">'+
+          '<div><small>WEALTH</small><strong>'+p.wealth+'</strong></div>'+
+          '<div><small>LAW</small><strong>'+p.law+'</strong></div>'+
+          '<div><small>INDUSTRY</small><strong>'+p.industry+'</strong></div>'+
+          '<div><small>CONTROL</small><strong>'+p.faction+'</strong></div>'+
+          '<div><small>BLACK MARKET</small><strong>'+p.blackMarket+'</strong></div>'+
+          '<div><small>REGION</small><strong>'+p.region+'</strong></div>'+
+        '</div>'+
+        '<h4>Exports</h4><div class="trade-tags">'+exportsHtml+'</div>'+
+        '<h4>Imports</h4><div class="trade-tags">'+importsHtml+'</div>'+
+        '<h4>Local Rumour</h4><p class="rumour">“'+p.rumour+'”</p>'+
+        '<h4>Adventure Profile</h4><div class="trade-tags">'+hooks+'</div>'+
+        '</div>';
+    }
+
+    function renderMarkers(){
+      const q=search.value.trim().toLowerCase();
+      const region=regionSel.value;
+      const law=lawSel.value;
+      markers.innerHTML="";
+      let shown=0;
+
+      ATLAS.forEach(p=>{
+        const hay=(p.name+" "+p.region+" "+p.industry+" "+p.faction+" "+p.lore).toLowerCase();
+        if(q && !hay.includes(q)) return;
+        if(region && p.region!==region) return;
+        if(law && p.blackMarket!==law) return;
+
+        const b=document.createElement("button");
+        b.className="planet-marker"+cls(p);
+        b.dataset.name=p.name;
+        b.style.left=p.x+"%";
+        b.style.top=p.y+"%";
+        b.title=p.name+" — "+p.industry;
+        b.setAttribute("aria-label",p.name);
+        b.addEventListener("click",()=>selectPlanet(p,b));
+        markers.appendChild(b);
+        shown++;
+      });
+
+      if(status) status.textContent=shown+" locations shown • "+ATLAS.length+" in atlas";
+    }
+
+    regionSel.addEventListener("change",renderMarkers);
+    lawSel.addEventListener("change",renderMarkers);
+    search.addEventListener("input",renderMarkers);
+
+    renderRoutes();
+    renderMarkers();
+
+    const first=markers.querySelector(".planet-marker");
+    if(first){
+      const p=ATLAS.find(x=>x.name===first.dataset.name);
+      if(p) selectPlanet(p,first);
+    }
+
+    // Underworld cards
+    const uc=document.querySelector("#underworldCards");
+    if(uc){
+      uc.innerHTML=
+        '<div class="card" data-page="23_SMUGGLER"><span class="tag">CAREER</span><h3>Smuggler</h3><p>Level 1–20 career with Blockade Runner, Black-Market Broker and Ghost Hauler.</p></div>'+
+        '<div class="card" data-page="24_CONTRABAND"><span class="tag">UNDERWORLD</span><h3>Contraband & Drug Runs</h3><p>Fictional controlled substances, customs inspections, Heat and high-risk margins.</p></div>'+
+        '<div class="card" data-page="08_ECONOMY_BOUNTIES_REPUTATION"><span class="tag">ECONOMY</span><h3>Heat & Reputation</h3><p>Illegal runs affect who trusts you and who hunts you.</p></div>';
+    }
+
+    // Run planner
+    const origin=document.querySelector("#runOrigin");
+    const dest=document.querySelector("#runDest");
+    const plan=document.querySelector("#planRun");
+    if(origin&&dest&&plan){
+      const eligible=ATLAS.filter(p=>p.blackMarket!=="Unknown");
+      const opts=eligible.map(p=>'<option value="'+p.slug+'">'+p.name+' — '+p.blackMarket+' black market</option>').join("");
+      origin.innerHTML=opts;
+      dest.innerHTML=opts;
+      if(dest.options.length>5) dest.selectedIndex=5;
+
+      const mult={"Low":1.2,"Medium":1.5,"High":2.0,"Very High":2.6,"Extreme":3.4,"Restricted":3.8,"Unknown":1};
+
+      plan.addEventListener("click",()=>{
+        const o=ATLAS.find(p=>p.slug===origin.value);
+        const d=ATLAS.find(p=>p.slug===dest.value);
+        const parts=document.querySelector("#runCargo").value.split("|");
+        const base=Number(parts[0]);
+        const cargo=parts[1];
+        const risk=mult[d.blackMarket]||1.5;
+        const dist=Math.hypot(o.x-d.x,o.y-d.y);
+        const routeBonus=1+Math.min(.8,dist/100);
+        const sale=Math.round(base*risk*routeBonus/100)*100;
+        const profit=sale-base;
+        const heat=Math.max(2,Math.round((risk-1)*7+dist/15));
+
+        document.querySelector("#runResult").innerHTML=
+          '<h3>'+cargo+': '+o.name+' → '+d.name+'</h3>'+
+          '<p><strong>Buy:</strong> ₡'+base.toLocaleString()+' / unit<br>'+
+          '<strong>Estimated sale:</strong> ₡'+sale.toLocaleString()+' / unit<br>'+
+          '<strong>Gross margin:</strong> ₡'+profit.toLocaleString()+' / unit<br>'+
+          '<strong>Estimated Heat exposure:</strong> '+heat+'</p>'+
+          '<p>Destination enforcement: <strong>'+d.law+'</strong>. Black-market presence: <strong>'+d.blackMarket+'</strong>.</p>';
+      });
+    }
+  }
+
+  if(document.readyState==="loading"){
+    document.addEventListener("DOMContentLoaded", startAtlas, {once:true});
+  }else{
+    startAtlas();
+  }
+})();
+</script>
+
+<script src="commerce.js"></script><script src="entry-gate.js"></script></body></html>

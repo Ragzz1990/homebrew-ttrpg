@@ -1,14 +1,14 @@
-# The Far Reach v1.2.1 — Galaxy Atlas Fix
+# The Far Reach v1.3.1 — Biometric Entry
 
-This replaces v1.2 and fixes atlas initialisation.
+Adds a full-screen biometric access sequence before the main site.
 
-Key fixes:
-- all main JavaScript now uses `defer`
-- atlas waits for DOMContentLoaded
-- clear on-page status if galaxy data fails to load
-- map works even if planet image files are missing
-- first planet auto-opens so successful loading is obvious
-- region dropdown and markers initialise together
+Flow:
+1. FAR REACH NAVCOM loads
+2. Player clicks PLACE HAND / BEGIN SCAN
+3. Identity, neural pattern, cybernetic trace and Vein resonance are scanned
+4. Access is granted
+5. "ENTERING FAR REACH..." transitions into the website
 
-Upload all files and folders from this package to the repository root, replacing v1.2.
-Keep `assets/planets/` intact.
+The entry sequence plays once per browser session.
+
+This package includes all v1.3 Shipyard & Stores content.
