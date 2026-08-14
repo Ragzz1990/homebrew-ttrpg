@@ -1,0 +1,122 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1">
+<title>The Far Reach — Galactic TTRPG</title>
+<meta name="description" content="The Far Reach: a galactic sandbox TTRPG of bounty hunting, trading, exploration, ships and cybernetics.">
+<link rel="stylesheet" href="styles.css">
+</head>
+<body class="entry-locked">
+<div id="bioGate" class="bio-gate">
+  <div class="bio-shell">
+    <div class="bio-head"><span>FAR REACH NAVCOM</span><span>ACCESS NODE // 7A</span></div>
+    <div class="bio-grid">
+      <section class="bio-left">
+        <div class="microtitle">BIOMETRIC ACCESS REQUIRED</div>
+        <div class="scan-stage active" id="fingerStage">
+          <div class="stage-title"><b>1.</b> PLACE FINGER</div>
+          <button id="fingerButton" class="finger-button" aria-label="Begin fingerprint scan">
+            <div class="fingerprint-icon">
+              <i></i><i></i><i></i><i></i><i></i><i></i><i></i>
+            </div>
+            <span class="finger-sweep"></span>
+          </button>
+          <div class="stage-caption" id="fingerCaption">CLICK FINGERPRINT TO INITIATE SCAN</div>
+        </div>
+        <div class="scan-stage locked" id="eyeStage">
+          <div class="stage-title"><b>2.</b> RETINAL SCAN</div>
+          <button id="eyeButton" class="eye-button" disabled aria-label="Begin retinal scan">
+            <div class="eye-outer"><div class="iris"><div class="pupil"></div></div><span class="eye-cross x"></span><span class="eye-cross y"></span></div>
+          </button>
+          <div class="stage-caption" id="eyeCaption">RETINAL ARRAY LOCKED</div>
+        </div>
+      </section>
+      <section class="bio-right">
+        <div class="brand-mark"><span class="diamond">◇</span><div>THE <strong>FAR REACH</strong><small>GALACTIC ACCESS TERMINAL</small></div></div>
+        <h1 id="bioTitle">ACCESS<br><span>REQUIRED</span></h1>
+        <div class="bio-checks">
+          <div><span>IDENTITY MATCH</span><b id="c1">PENDING</b></div>
+          <div><span>NEURAL PATTERN</span><b id="c2">PENDING</b></div>
+          <div><span>CYBERNETIC TRACE</span><b id="c3">PENDING</b></div>
+          <div><span>VEIN RESONANCE</span><b id="c4">PENDING</b></div>
+          <div><span>ACCESS CLEARANCE</span><b id="c5">LOCKED</b></div>
+        </div>
+        <div class="bio-progress"><div id="bioProgress"></div></div>
+        <div id="bioMessage" class="bio-message">PLACE INDEX FINGER ON THE BIOMETRIC PAD.</div>
+      </section>
+    </div>
+    <div class="bio-foot"><span>SECURE CONNECTION</span><span>CONDOR GALAXY RELAY</span><span>BUILD 1.4</span></div>
+  </div>
+</div>
+
+<header class="topbar">
+  <a class="brand" href="#home"><span>◇</span><b>THE FAR REACH</b></a>
+  <button id="navToggle">☰</button>
+  <nav id="nav"><a href="#home">Home</a><a href="#play">Play</a><a href="#rules">Rules</a><a href="#characters">Characters</a><a href="#galaxy">Galaxy</a><a href="#shipyard">Shipyard</a><a href="#stores">Stores</a><a href="#underworld">Underworld</a><a href="#gm">GM</a></nav>
+</header>
+
+<main>
+<section id="home" class="hero">
+  <div class="hero-copy">
+    <div class="eyebrow">A GALACTIC SANDBOX TTRPG</div>
+    <h1>HUNT. TRADE.<br>EXPLORE.<br><span>CROSS THE VEINS.</span></h1>
+    <p>Build a crew, take contracts, run cargo, hunt targets, modify your body, upgrade your ship and push beyond charted space.</p>
+    <div class="cta"><a class="button primary" href="#galaxy">ENTER THE GALAXY</a><a class="button" href="#play">CREATE A CHARACTER</a></div>
+  </div>
+  <div class="hero-visual">
+    <img src="far-reach-command-deck.png" alt="The Far Reach command interface artwork">
+    <div class="hero-veil"></div>
+    <div class="hero-caption"><span>CONDOR GALAXY</span><b>NAVIGATION NETWORK ONLINE</b></div>
+  </div>
+</section>
+
+<section class="hub-cards">
+  <a href="#shipyard" class="hub-card"><span>SHIPYARD</span><h3>16 SHIPS AVAILABLE</h3><p>Crew sizes, cargo, combat stats and ship art.</p></a>
+  <a href="#stores" class="hub-card"><span>GALACTIC STORES</span><h3>33+ ITEMS</h3><p>Weapons, armour, shields, robots and modules.</p></a>
+  <a href="#underworld" class="hub-card red"><span>BLACK MARKET</span><h3>HIGH RISK. HIGH PROFIT.</h3><p>Contraband, illegal implants and criminal ship tech.</p></a>
+</section>
+
+<section id="play" class="panel">
+  <div class="section-head"><span>01</span><div><h2>Play</h2><p>Create a character, crew and quick dice rolls.</p></div></div>
+  <div class="tabs"><button class="tab active" data-tab="characterTool">Character Creator</button><button class="tab" data-tab="crewTool">Crew Sheet</button><button class="tab" data-tab="diceTool">Dice Roller</button></div>
+  <div id="characterTool" class="tool active"><div class="form-grid"><label>Name<input id="charName"></label><label>People<select id="charPeople"></select></label><label>Background<select id="charBackground"></select></label><label>Career<select id="charCareer"></select></label><label>Specialisation<select id="charSpec"></select></label><label>Level<input id="charLevel" type="number" min="1" max="20" value="1"></label></div><button id="saveCharacter" class="button primary">SAVE CHARACTER</button><div id="charOutput" class="output"></div></div>
+  <div id="crewTool" class="tool"><div class="form-grid"><label>Crew Name<input id="crewName"></label><label>Credits<input id="crewCredits" type="number" value="2500"></label><label>Heat<input id="crewHeat" type="number" value="0" min="0" max="100"></label><label>Ship<select id="crewShip"></select></label></div><label>Notes<textarea id="crewNotes" rows="5"></textarea></label><button id="saveCrew" class="button primary">SAVE CREW</button><div id="crewOutput" class="output"></div></div>
+  <div id="diceTool" class="tool"><div class="dice-row"><select id="dieType"><option>d20</option><option>d12</option><option>d10</option><option>d8</option><option>d6</option><option>d4</option></select><input id="dieCount" type="number" min="1" max="20" value="1"><input id="dieMod" type="number" value="0"><button id="rollDice" class="button primary">ROLL</button></div><div id="diceResult" class="big-result">—</div></div>
+</section>
+
+<section id="rules" class="panel"><div class="section-head"><span>02</span><div><h2>Rules</h2><p>Familiar d20 foundations built for a galactic sandbox.</p></div></div><div class="info-grid"><article><span>CORE</span><h3>d20 + Ability + Proficiency</h3><p>Advantage, saving throws, levels 1–20 and familiar six abilities.</p></article><article><span>COMBAT</span><h3>Firearms + Cover + Shields</h3><p>Defence, personal shields, suppression, overwatch and ranged positioning.</p></article><article><span>PROGRESSION</span><h3>Character + Ship + Crew</h3><p>Levels, talents, cybernetics, ship upgrades, credits and Reputation.</p></article><article><span>ECONOMY</span><h3>Jobs Matter</h3><p>Fuel, repairs, trade, docking fees and bounties keep credits relevant.</p></article></div></section>
+
+<section id="characters" class="panel"><div class="section-head"><span>03</span><div><h2>Characters</h2><p>Nine careers and six original peoples.</p></div></div><div id="careerCards" class="info-grid"></div></section>
+
+<section id="galaxy" class="panel">
+  <div class="section-head"><span>04</span><div><h2>Interactive Galaxy Atlas</h2><p>Click a world to open its lore, economy, law, faction, black market and adventure hooks.</p></div></div>
+  <div class="filterbar"><input id="planetSearch" placeholder="Search planet, faction, industry..."><select id="planetRegion"><option value="">All regions</option></select><select id="planetBlack"><option value="">All black-market levels</option></select></div>
+  <div class="atlas-layout"><div class="galaxy-map" id="galaxyMap"><svg id="routeLayer" viewBox="0 0 100 100" preserveAspectRatio="none"></svg><div id="planetMarkers"></div></div><aside id="planetDetail" class="detail-panel"></aside></div>
+</section>
+
+<section id="shipyard" class="panel">
+  <div class="section-head"><span>05</span><div><h2>Shipyard</h2><p>Browse vessels by role, price, crew and cargo capacity.</p></div></div>
+  <div class="filterbar"><input id="shipSearch" placeholder="Search ships..."><select id="shipRole"><option value="">All roles</option></select><select id="shipBudget"><option value="">Any budget</option><option value="200000">Up to ₡200k</option><option value="300000">Up to ₡300k</option><option value="500000">Up to ₡500k</option><option value="1000000">Up to ₡1m</option></select></div>
+  <div class="commerce-layout"><div id="shipGrid" class="catalogue"></div><aside id="shipDetail" class="detail-panel"></aside></div>
+</section>
+
+<section id="stores" class="panel">
+  <div class="section-head"><span>06</span><div><h2>Galactic Stores</h2><p>Prices and stats using a 5e-inspired purchasing-power scale converted to Galactic Credits.</p></div></div>
+  <div id="economyNote" class="notice"></div>
+  <div class="filterbar"><input id="itemSearch" placeholder="Search equipment..."><select id="itemCategory"><option value="">All categories</option></select><select id="itemLaw"><option value="">All legality</option></select></div>
+  <div class="commerce-layout"><div id="itemGrid" class="catalogue"></div><aside id="itemDetail" class="detail-panel"></aside></div>
+</section>
+
+<section id="underworld" class="panel">
+  <div class="section-head"><span>07</span><div><h2>Black Market</h2><p>Illegal weapons, contraband, cybernetics, unregistered robots and criminal ship systems.</p></div></div>
+  <div class="notice danger-note">Black-market prices vary heavily by planet, Heat and syndicate Reputation. Sentient trafficking can exist as a criminal setting evil, but sentient captives are not player inventory; those networks create rescue, infiltration and anti-trafficking missions.</div>
+  <div class="filterbar"><input id="blackSearch" placeholder="Search black market..."><select id="blackCategory"><option value="">All categories</option></select><select id="blackLaw"><option value="">All legality</option></select></div>
+  <div class="commerce-layout"><div id="blackGrid" class="catalogue"></div><aside id="blackDetail" class="detail-panel"></aside></div>
+</section>
+
+<section id="gm" class="panel"><div class="section-head"><span>08</span><div><h2>GM Console</h2><p>Generate instant contracts for the crew.</p></div></div><button id="generateJob" class="button primary">GENERATE CONTRACT</button><div id="jobOutput" class="output"></div></section>
+</main>
+
+<footer><span>THE FAR REACH // BUILD 1.4</span><span>PRIVATE ALPHA</span></footer>
+<script src="app.js"></script>
+</body></html>
